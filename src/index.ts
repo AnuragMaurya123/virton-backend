@@ -18,7 +18,7 @@ const app = express();
 // CORS configuration
 app.use(
   cors({
-    origin: ["https://virton.vercel.app"], // Allowed origins
+    origin: ["https://virton-frontend.vercel.app"], // Allowed origins
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], // Allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     credentials: true, // Allow cookies and credentials
