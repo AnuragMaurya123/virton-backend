@@ -39,10 +39,10 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
     res
     .cookie("admintoken", token, {
-      httpOnly: true, // Prevent access via JavaScript
-      secure: process.env.NODE_ENV === "production", // Send only over HTTPS in production
-      maxAge: Number(process.env.COOKIE_EXPIRATION) || 1000 * 60 * 60 * 24 * 3, // Default to 3 days
-      path: "/", // Send cookie for all routes; adjust as needed
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 3, // 3 days
+      secure: process.env.NODE_ENV === "production", // Ensure cookies are only sent over HTTPS
+      sameSite: "none", // For cross-origin
     })
       .status(201)
       .json({
