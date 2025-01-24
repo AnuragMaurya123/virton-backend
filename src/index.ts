@@ -15,6 +15,10 @@ dotenv.config();
 // Create an Express app
 const app = express();
 
+// Middleware to parse incoming JSON requests
+app.use(express.json());
+app.use(cookieParser());
+
 // CORS configuration
 app.use(
   cors({
@@ -25,9 +29,7 @@ app.use(
   })
 );
 
-// Middleware to parse incoming JSON requests
-app.use(express.json());
-app.use(cookieParser());
+
 
 // API routes
 app.use("/api/admin", adminRouter);
